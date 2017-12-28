@@ -46,10 +46,10 @@ Serial.begin(9600);
 // from my joystick
 //xRage 610/2 -> 305
 //yRange 680/2 -> 340
-xMaxRange = 257;
-xMinRange = -257;
-yMaxRange = 257;
-yMinRange = -257;
+xMaxRange = 497;
+xMinRange = -497;
+yMaxRange = 497;
+yMinRange = -497;
 
 zMaxBrake = 300; 
 zMinBrake = 50;
@@ -58,8 +58,8 @@ zMinBrake = 50;
 xZero = analogRead(xPin);
 yZero = analogRead(yPin);
 //-- need logial joystick point to center ( 0 - 1024)
-xTrans = 511 - xZero;
-yTrans = 511 - yZero;
+xTrans = 497 - xZero;
+yTrans = 497 - yZero;
 // Initialize Joystick Library
 Joystick.setXAxisRange(xMaxRange, xMinRange);
 Joystick.setYAxisRange(yMinRange, yMaxRange);
@@ -73,8 +73,8 @@ xCur = analogRead(xPin);
 yCur = analogRead(yPin);
 zCur = analogRead(zPin);
 // trick it
-xValue = xCur + xTrans - 511;
-yValue = yCur + yTrans - 511;
+xValue = xCur + xTrans - 497;
+yValue = yCur + yTrans - 497;
 zValue = zCur;
 
 // dead zone blocking
@@ -89,8 +89,8 @@ if(DEBUG) {
 this is for checking my joystick
 */
 //-- joystick positon : Center , Max , Min : Range ->Range Use
-//-- xCur 508 , 863 , 251 : 612 ->610
-//-- yCur 482 , 799 , 110 : 689 ->680
+//-- xCur 514 , 1023 , 0 : 612 ->610
+//-- yCur 497 , 1023 , 0 : 689 ->680
 //-- so my range x -257 0 +355 --> set range 257
 // x -371 0 +317 --> set range 371
 Serial.print("xCurrent: ");
